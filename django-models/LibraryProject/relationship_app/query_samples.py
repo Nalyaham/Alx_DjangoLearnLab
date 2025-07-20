@@ -1,10 +1,12 @@
 from .models import Book, Author, Library, Librarian
-author = Author.objects.get(id=1)
-books = author.books.all()
+author_name = 'Author'
+author = Author.objects.get(name=author_name)
+books = Book.objects.filter(author=author)
 
 library_name = 'My Library'
 library = Library.objects.get(name=library_name)
 book = library.book_in_library.all()
 
-librarian = Librarian.objects.get(id=1)
+librarian_name = "librarian"
+librarian = Librarian.objects.get(name=librarian_name)
 library = librarian.library.all()
