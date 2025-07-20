@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Book, Library 
+from .models import Book
+from .models import Library 
 
 # Create your views here.
 def book_list(request):
@@ -10,7 +11,7 @@ def book_list(request):
 
 class LibraryListView(ListView):
     model = Library
-    template_name = 'list_books.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
     def get_queryset(self):
