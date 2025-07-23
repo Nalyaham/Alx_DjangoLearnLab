@@ -38,17 +38,17 @@ def is_member(user):
 
 #View for the admin
 @user_passes_test(is_admin)
-def admin_view(request):
+def Admin(request):
     return render(request, 'admin_view.html')
 
 #View for the librarian 
 @user_passes_test(is_librarian)
-def librarian_view(request):
+def Librarian(request):
     return render(request, 'librarian_view.html')
 
 #View for the member
 @user_passes_test(is_member)
-def member_view(request):
+def Member(request):
     return render(request, 'member_view.html')
 
 #View for adding a book to the Book model
@@ -72,7 +72,7 @@ def edit_book(request, pk):
     
 #View for deleting a book 
 @permission_required('relationship_app.can_delete_book')
-def edit_book(request, pk):
+def delete_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         book.delete()
