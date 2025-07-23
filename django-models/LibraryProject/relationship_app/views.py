@@ -61,7 +61,7 @@ def add_book(request):
          return render(request, 'add_book.html')
 
 #View for editing the book in Database 
-@permission_required('relationship_app.can_edit_book')
+@permission_required('relationship_app.can_change_book')
 def edit_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
