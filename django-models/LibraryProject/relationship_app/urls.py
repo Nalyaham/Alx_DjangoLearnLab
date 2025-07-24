@@ -8,8 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 urlpatterns = [
     path('booklist/', list_books.list_books, name='booklist'),
     path('library/', list_books.LibraryDetailView.as_view(), name='library'),
-    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'), 
+    path('login/', loginview.as_view(template_name='relationship_app/login.html'), name='login'),
+    path('logout/', logoutview.as_view(), name='logout'), 
 	path('register/', SignUpView.as_view(template_name = 'relationship_app/signup.html'), name='register'), 
     path('Admin/', Admin.admin_view, name='admin_view'), 
     path('member/', Member.member_view, name='member_view'), 
