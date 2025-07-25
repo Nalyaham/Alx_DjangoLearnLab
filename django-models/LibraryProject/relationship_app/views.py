@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Library
 from django.contrib.auth import loginview, logoutview
+from django.contrib.auth import login
 from django.views.generic.detail import DetailView
 from .models import Book, Library, UserProfile
 from django.contrib.auth.forms import UserCreationForm
@@ -24,10 +25,10 @@ class LibraryListView(DetailView):
     def get_queryset(self):
         return Library.objects.all().values('name', 'books')
     
-class SignUpView(CreateView):
-     form_class = UserCreationForm 
+class register(CreateView):
+     form_class = UserCreationForm() 
      success_url = reverse_lazy('login')
-     template_name = 'relationship_app/signup.html'
+     template_name = 'relationship_app/register.html'
 
 def is_admin(user):    
     return user.UserProfile.role == 'ADMIN'
